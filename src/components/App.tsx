@@ -16,7 +16,7 @@ import { useJobItems } from "../lib/hooks";
 
 export default function App() {
   const [searchText, setSearchText] = useState("")
-  const { jobItems, isLoading } = useJobItems(searchText)
+  const { jobitemsSliced, isLoading } = useJobItems(searchText)
 
   return (
     <>
@@ -34,7 +34,7 @@ export default function App() {
             <ResultsCount />
             <SortingControls />
           </SidebarTop>
-          <JobList jobItems={jobItems} isLoading={isLoading} />
+          <JobList jobItems={jobitemsSliced} isLoading={isLoading} />
           <PaginationControls />
         </Sidebar>
         <JobItemContent />
