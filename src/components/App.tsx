@@ -16,7 +16,7 @@ import PaginationControls from "./PaginationControls";
 
 export default function App() {
   const [searchText, setSearchText] = useState("")
-  const [jobItems, isLoading] = useJobItems(searchText)
+  const { jobitemsSliced, isLoading, totalNumberOfResults } = useJobItems(searchText)
   
   return (
     <>
@@ -31,10 +31,10 @@ export default function App() {
       <Container>
         <Sidebar>
           <SidebarTop>
-            <ResultsCount />
+            <ResultsCount totalNumberOfResults={totalNumberOfResults} />
             <SortingControls />
           </SidebarTop>
-          <JobList jobItems={jobItems} isLoading={isLoading} />
+          <JobList jobItems={jobitemsSliced} isLoading={isLoading} />
           <PaginationControls />
         </Sidebar>
         <JobItemContent />
