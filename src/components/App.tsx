@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useJobItems } from "../lib/hooks";
 import Background from "./Background";
 import Header, { HeaderTop } from "./Header";
 import Container from "./Container";
@@ -12,12 +13,11 @@ import ResultsCount from "./ResultsCount";
 import SortingControls from "./SortingControls";
 import JobList from "./JobList";
 import PaginationControls from "./PaginationControls";
-import { useJobItems } from "../lib/hooks";
 
 export default function App() {
   const [searchText, setSearchText] = useState("")
   const [jobItems, isLoading] = useJobItems(searchText)
-
+  
   return (
     <>
       <Background />
