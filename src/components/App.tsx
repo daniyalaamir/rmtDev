@@ -17,8 +17,11 @@ import PaginationControls from "./PaginationControls";
 export default function App() {
   const [searchText, setSearchText] = useState("")
   const debouncedSearchText = useDebounce(searchText, 250)
-  const { jobitemsSliced, isLoading, totalNumberOfResults } = useJobItems(debouncedSearchText)
+  const { jobItems, isLoading } = useJobItems(debouncedSearchText)
   
+  const totalNumberOfResults = jobItems.length
+  const jobitemsSliced = jobItems.slice(0, 7)
+
   return (
     <>
       <Background />
