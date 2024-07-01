@@ -18,3 +18,7 @@ export type TJobItemExpanded = TJobItem & {
   coverImgURL: string
   companyURL: string
 }
+
+export type PageDirection = 'next' | 'previous'
+
+export type SortBy = "relevant" | "recent"
