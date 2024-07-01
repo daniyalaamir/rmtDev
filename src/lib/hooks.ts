@@ -22,7 +22,7 @@ const fetchJobItem = async (id: number | null): Promise<JobItemApiResponse> => {
 export function useJobItem(id: number | null) {
   const { data, isInitialLoading } = useQuery(
     ['job-item', id],
-    () => (!id ? fetchJobItem(id) : null),
+    () => (id ? fetchJobItem(id) : null),
     {
       staleTime: 1000 * 60 * 60,
       refetchOnWindowFocus: false,
